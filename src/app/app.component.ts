@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector : 'pm-root',
+  template : `
+  <div>
+  <h1>
+    Welcome to {{pageTitle}}
+  </h1>
+  ... Stater Files..
+</div>
+  `
 })
-export class AppComponent {
-  title = 'APM';
+export class AppComponent{
+  pageTitle : string = "Acme Product Management";
 }
