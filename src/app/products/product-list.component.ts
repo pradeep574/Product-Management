@@ -1,18 +1,22 @@
-import { Component } from '@angular/core'; 
+import { componentFactoryName } from '@angular/compiler';
+import { Component, OnInit } from '@angular/core';
+import { IProduct } from './IProduct';
 
 @Component({
     selector: 'pm-products',
-    templateUrl : './product-list.component.html'
+    templateUrl: './product-list.component.html',
+    styleUrls: ['./product-list-component.css']
 })
-export class ProductListComponent { 
-    pageTitle:string = "Product List";
-    imageMargin:number = 2;
-    imageWidth : number = 50;
-    showImage : boolean = false;
-    showContent:boolean = true;
-    listFilter:string;
+export class ProductListComponent implements OnInit{
+    
+    pageTitle: string = "Product List";
+    imageMargin: number = 2;
+    imageWidth: number = 50;
+    showImage: boolean = false;
+    showContent: boolean = true;
+    listFilter: string;
 
-    products: any[] = [
+    products: IProduct[] = [
         {
             "productId": 1,
             "productName": "Leaf Rake",
@@ -22,8 +26,8 @@ export class ProductListComponent {
             "price": 19.95,
             "starRating": 3.2,
             "imageUrl": "assets/images/leaf_rake.png"
-          },
-          {
+        },
+        {
             "productId": 2,
             "productName": "Garden Cart",
             "productCode": "GDN-0023",
@@ -32,13 +36,16 @@ export class ProductListComponent {
             "price": 32.99,
             "starRating": 4.2,
             "imageUrl": "assets/images/garden_cart.png"
-          },
+        },
     ]
 
-    toggleImage():void {
+    toggleImage(): void {
         this.showImage = !this.showImage;
     }
-    toogleContent() :void{
+    toogleContent(): void {
         this.showContent = !this.showContent;
+    }
+    ngOnInit(): void {
+        console.log("In OnInit");
     }
 }
