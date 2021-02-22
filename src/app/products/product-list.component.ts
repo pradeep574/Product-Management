@@ -4,7 +4,6 @@ import { IProduct } from './Product';
 import { ProductService } from './product.service';
 
 @Component({
-    selector: 'pm-products',
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list-component.css']
 })
@@ -16,6 +15,8 @@ export class ProductListComponent implements OnInit {
     showImage: boolean = false;
     showContent: boolean = true;
     _listFilter: string;
+    errMessage: string;
+
     get listFilter(): string {
         return this._listFilter;
     }
@@ -51,7 +52,12 @@ export class ProductListComponent implements OnInit {
     }
     ngOnInit(): void {
         console.log("In OnInit");
-        this.products = this.productService.getProducts();
-        this.filteredProducts = this.products;
+        this.productService.getProducts().subscribe({
+            next: products => { 
+                this.products = products;
+                this.filteredProducts = this.products;
+            },
+            error: err => this.errMessage = err
+        });
     }
 }

@@ -40,7 +40,7 @@
                                 [src]='product.imageUrl' [title]='product.productName'
                                 [style.width.px]='imageWidth' [style.margin.px]=' imageMargin'></td>
                         <!-- Property Binding -->
-                        <td>{{product.productName}}</td> <!-- Binding using Interpolation -->
+                        <td><a [routerLink]='["/products",product.productId]'>{{product.productName}}</a></td> <!-- Binding using Interpolation -->
                         <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price | currency:'INR':'symbol':'1.2-2' }}</td>
