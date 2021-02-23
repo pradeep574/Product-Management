@@ -5,16 +5,12 @@
   ... Stater Files..
 </div> -->
 <nav class="navbar navbar-expand navbar-light bg-light">
-  <a href="#"><img src="./assets/images/logo.png" class="image-responsive center-block"
-      style="height: 50px; width: 70px;">
-  </a>
-  <ul class="nav nav-pills">
-    <li><a class="nav-link fa fa-home" style="font-size: large;" [routerLink]="['/welcome']"> Home</a></li>
-    <li><a class="nav-link fa fa-list" style="font-size: large;" [routerLink]="['/products']"> Products</a></li>
-    <li><a class="nav-link fa fa-user" href="#" style="margin-left: 750px; font-size: large;"> Account</a></li>
-    <li><a class="nav-link fa fa-sign-out" href="#" style="font-size: large;"> Sign Out</a></li>
+  <a class="navbar-brand">{{pageTitle}}</a>
+  <ul class="nav nav-pills" >
+    <li><a class="nav-link" [routerLink]="['/welcome']">Home</a></li>
+    <li><a class="nav-link" [routerLink]="['/products']">Products</a></li>
   </ul>
-</nav>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+  </nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
